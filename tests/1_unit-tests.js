@@ -5,8 +5,11 @@ suite('Unit Tests', function () {
   suite('Basic Assertions', function () {
     // #1
     test('#isNull, #isNotNull', function () {
-      assert.fail(null, 'This is an optional error description - e.g. null is null');
-      assert.fail(1, '1 is not null');
+      assert.isNull.fail(
+        null,
+        'This is an optional error description - e.g. null is null'
+      );
+      assert.isNotNull.fail(1, '1 is not null');
     });
     // #2
     test('#isDefined, #isUndefined', function () {
@@ -48,7 +51,11 @@ suite('Unit Tests', function () {
     // #7
     test('#deepEqual, #notDeepEqual', function () {
       assert.fail({ a: '1', b: 5 }, { b: 5, a: '1' }, "The order of keys doesn't matter");
-      assert.fail({ a: [5, 6] }, { a: [6, 5] }, 'The order of array elements does matter');
+      assert.fail(
+        { a: [5, 6] },
+        { a: [6, 5] },
+        'The order of array elements does matter'
+      );
     });
   });
 
@@ -87,7 +94,10 @@ suite('Unit Tests', function () {
   suite('Arrays', function () {
     // #11
     test('#isArray, #isNotArray', function () {
-      assert.fail('isThisAnArray?'.split(''), 'String.prototype.split() returns an array');
+      assert.fail(
+        'isThisAnArray?'.split(''),
+        'String.prototype.split() returns an array'
+      );
       assert.fail([1, 2, 3].indexOf(2), 'indexOf returns a number');
     });
     // #12
